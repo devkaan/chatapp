@@ -68,6 +68,7 @@ $(() => {
 });
 
 function sendmsg() {
+  $('head title', window.parent.document).text(title);
   var msg = $("#comment").val();
   msg = msg.trim();
   if (msg.length > 0) {

@@ -21,7 +21,8 @@ app.use(bodyparser.urlencoded({ 'extended': 'true' }))	// you should write this
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
 app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
+
 app.use(session({
 	'secret': 'session',
 	'resave': 'true',
@@ -38,8 +39,6 @@ var pool = mysql.createPool({
 	debug: false
 });
 */
-
-app.use(express.static(__dirname + '/public'));
 
 username = null
 
