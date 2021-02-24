@@ -286,7 +286,7 @@ body {
 .chat .content .message-form ul li.image-btn a {
     background: #4caf50;
 }
-.logout{
+.logout {
     cursor: pointer;
     background: #2e2e2e;
     border-radius: 50%;
@@ -299,6 +299,34 @@ body {
 }
 .logout i {
     margin-left: 2px;
+    font-size: 16px;
+    color: #fff;
+}
+.header-right {
+    display: flex;
+    flex-direction: row;
+}
+.volume {
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    
+}
+.volume .unmute{
+    display: none;
+}
+.volume i {
+    cursor: pointer;
+    background: #2e2e2e;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
     font-size: 16px;
     color: #fff;
 }
