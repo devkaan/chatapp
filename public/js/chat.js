@@ -47,7 +47,7 @@ $(() => {
             setTimeout(() => {
               isnotifSent = false;
             }, 7000);
-          }
+          } 
         }
       }
       text = '<div class="message"><div class="bubble"><div class="username">' + user + '</div>' + text + '</div><div class="time">' + time + '</div></div>';
