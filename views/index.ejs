@@ -33,7 +33,7 @@
 
 				<%- (locals.message) ? '<div class="alert alert-warning">' +message+'</div>' : '' %>
 					<tr>
-						<td><input type="text" class="form-control" value="kaan" name="username" id="username" placeholder="Bir isim yaz ve">
+						<td><input type="text" class="form-control" name="username" id="username" placeholder="Bir isim yaz ve">
 						</td>
 						<td><input class="btn btn-primary" type="submit" name="login" value="Sohbete başla" id="login"></td>
 					</tr>
@@ -43,9 +43,10 @@
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script>
-		$(()=>{
-			$('#loginform').submit()
-		})
+		// $(()=>{
+		// 	$('#username').text('kaan');
+		// 	$('#loginform').submit();
+		// })
 	</script>
 </body>
 
