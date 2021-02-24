@@ -1,14 +1,13 @@
 const http = require("http")
 const express = require('express')
+const session = require('express-session')	// session module
+const sharedsession = require("express-socket.io-session")
 const app = express()
 const server = http.createServer(app)
 const io = require('socket.io').listen(server)
 const bodyparser = require("body-parser")
-const sharedsession = require("express-socket.io-session")
 const fs = require('fs')
 const ejs = require('ejs')
-const session = require('express-session')	// session module
-const mysql = require('mysql')
 const path = require('path')
 
 // var connection = mysql.createConnection({
