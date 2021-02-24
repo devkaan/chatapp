@@ -39,7 +39,7 @@ $(() => {
     }
     else {
       if (!isTabFocused) {
-        $('head title', window.parent.document).text('(1) You have a message!');
+        $('head title', window.parent.document).text('(1) Bir mesajın var!');
         if (notifVisibility != 'none') {
           if (!isnotifSent) {
             isnotifSent = true;
@@ -47,7 +47,7 @@ $(() => {
             setTimeout(() => {
               isnotifSent = false;
             }, 7000);
-          } 
+          }
         }
       }
       text = '<div class="message"><div class="bubble"><div class="username">' + user + '</div>' + text + '</div><div class="time">' + time + '</div></div>';
