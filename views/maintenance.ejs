@@ -1,44 +1,55 @@
-<!doctype html>
-<title>Site Maintenance</title>
-<style>
-  body {
-    text-align: center;
-    padding: 150px;
-  }
+<!DOCTYPE html>
+<%- include('inc/metatags.ejs'); -%>
+  <html lang="tr">
 
-  h1 {
-    font-size: 50px;
-  }
+  <head>
+    <title>Site şu an bakımda</title>
+    <style>
+      body {
+        text-align: center;
+        padding: 150px;
+      }
 
-  body {
-    font: 20px Helvetica, sans-serif;
-    color: #333;
-  }
+      h1 {
+        font-size: 50px;
+      }
 
-  article {
-    display: block;
-    text-align: left;
-    width: 650px;
-    margin: 0 auto;
-  }
+      body {
+        font: 20px Helvetica, sans-serif;
+        color: #333;
+      }
 
-  a {
-    color: #dc8100;
-    text-decoration: none;
-  }
+      article {
+        display: block;
+        text-align: left;
+        width: 650px;
+        margin: 0 auto;
+      }
 
-  a:hover {
-    color: #333;
-    text-decoration: none;
-  }
-</style>
+      a {
+        color: #dc8100;
+        text-decoration: none;
+      }
 
-<article>
-  <h1>Site şu anda bakımda.</h1>
-  <div>
-    <p>Verdiğimiz rahatsızlıktan dolayı özür dileriz, ancak şu anda bazı bakımlar yapıyoruz. İhtiyacınız olursa her
-      zaman bizimle <a href="mailto:abdikaangrbz@gmail.com">iletişime geçebilirsiniz</a>, aksi takdirde kısa süre içinde
-      tekrar çevrimiçi olacağız!</p>
-    <p>&mdash; Site geliştiricisi</p>
-  </div>
-</article>
+      a:hover {
+        color: #333;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <article>
+      <h1>Site şu anda bakımda.</h1>
+      <div>
+        <p>Verdiğimiz rahatsızlıktan dolayı özür dileriz, ancak şu anda bazı bakımlar yapıyoruz. İhtiyacınız olursa her
+          zaman bizimle <a href="mailto:abdikaangrbz@gmail.com">iletişime geçebilirsiniz</a>, aksi takdirde kısa süre
+          içinde
+          tekrar çevrimiçi olacağız!</p>
+        <p>&mdash; Site geliştiricisi</p>
+      </div>
+    </article>
+  </body>
+
+  </html>
