@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<title>Socket.io chat app</title>
+	<script src="/jquery/jquery.min.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<style>
+		body {
+			padding: 15px 10px;
+			background-color: rgb(8, 24, 39);
+			color: whitesmoke;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.form-group {
+			margin: 0px;
+		}
+
+		.form-group table tr td {
+			display: inline-block;
+			margin-right: 10px !important;
+		}
+	</style>
+</head>
+
+<body>
+	<form action="/login" method="POST">
+		<div class="form-group">
+			<table>
+				<tr>
+					<td><label for="username">Bir isim yaz</label></td>
+					<td><input type="text" class="form-control" value="kaan" name="username" id="username"></td>
+					<td><input class="btn btn-primary" type="submit" name="login" value="Sohbete başla" id="login"></td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+
+</html>
