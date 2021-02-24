@@ -9,6 +9,7 @@ const fs = require('fs')
 const ejs = require('ejs')
 const session = require('express-session')	// session module
 const mysql = require('mysql')
+const path = require('path')
 
 // var connection = mysql.createConnection({
 // 	host: "localhost",
@@ -18,8 +19,9 @@ const mysql = require('mysql')
 // });
 
 app.use(bodyparser.urlencoded({ 'extended': 'true' }))	// you should write this
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs')
 app.use(session({
 	'secret': 'session',
@@ -145,7 +147,12 @@ io.on('connection', function (socket) {
 		var text = status.text;
 		var user = username;
 		//		var user = status.user;
-		io.emit('refresh feed', { text, user });
+		if (username) {
+			io.emit('refresh feed', { text, user });
+		}
+		else {
+			io.emit('not logged');
+		}
 		/* 
 		//	use with mysql 
 		add_status({ text, user }, function (res) {

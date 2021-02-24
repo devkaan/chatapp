@@ -3,17 +3,17 @@
 
 <head>
 	<%- include('inc/metatags.ejs'); -%>
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>8chat</title>
-	<link rel="stylesheet" type="text/css" href="csss/style.css" />
-	<script src="/jquery/jquery.min.js"></script>
-	<link rel="stylesheet" href="/css/bootstrap.css">
-	<script src="https://kit.fontawesome.com/a6c49e9ad1.js" crossorigin="anonymous"></script>
-	<style>
-		.message-content {
-			background-color: rgb(8, 24, 39);
-		}
-	</style>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>8chat</title>
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<script src="/jquery/jquery.min.js"></script>
+		<link rel="stylesheet" href="/bootstrap/bootstrap.css">
+		<script src="https://kit.fontawesome.com/a6c49e9ad1.js" crossorigin="anonymous"></script>
+		<style>
+			.message-content {
+				background-color: rgb(8, 24, 39);
+			}
+		</style>
 </head>
 
 <body>
@@ -74,23 +74,12 @@
 						</li>
 					</ul>
 				</div>
+				<div class="logout" title="Sign out and delete all cookies">
+					<a href="/logout">
+						<i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
+				</div>
 			</div>
 			<div id="message-content" class="message-content">
-				<!--
-				<div class="message">
-					<div class="bubble">
-						yapılanlar:
-					</div>
-					<div class="time">22:01</div>
-				</div>
-				<div class="message me">
-					<div class="bubble">
-						mesaj gönderme
-					</div>
-					<div class="time">22:02</div>
-				</div>
-			-->
-
 			</div>
 			<div class="message-form">
 				<ul>
@@ -125,97 +114,7 @@
 
 	<script src="/socket.io/socket.io.js"></script>
 
-	<script>
-		var socket = null;
-		var isme = false;
-		var asd = 1;
-		$(document).ready(function () {
-			socket = io();
-			$('#comment').keydown(function (e) {
-				var key = e.keyCode;
-				if (key == 13) {
-					sendmsg()
-				}
-				else {
-					if ($('#alertbox').css('display') == 'none') {
-						$('#alertbox').html('<h6 class="alert alert-warning">You should write a message</h6>');
-						$('#alertbox').show(500).delay(1000).hide(500);
-					}
-				}
-			})
-			$("#sendbtn").click(function () {
-				sendmsg()
-			});
-
-			socket.on('refresh feed', ({ text, user }) => {
-				var dt = new Date();
-				var time = dt.getHours() + ":" + dt.getMinutes();
-
-				var audio = {};
-				var audioElement = document.createElement('audio');
-				audioElement.setAttribute('src', '/sounds/bellsound.mp3');
-
-				isTabFocused = document.hasFocus();
-				console.log('tab status', isTabFocused);
-				if (isme) {
-					text = '<div class="message me"><div class="bubble"><div class="username">' + user + '</div>' + text + '</div><div class="time">' + time + '</div></div>';
-				}
-				else {
-					if (!isTabFocused) {
-						audioElement.play();
-					}
-					text = '<div class="message"><div class="bubble"><div class="username">' + user + '</div>' + text + '</div><div class="time">' + time + '</div></div>';
-				}
-				isme = false
-				$("#message-content").append(text);
-
-				// console.log('appended div =>', text);
-				lastheight = $(".message").last().height();
-				console.log('last =>', (lastheight * asd * 2));
-				$('#message-content').animate({ scrollTop: (lastheight * asd * 2) }, 'fast');
-
-				asd++;
-				$('#comment').val('');
-			});
-		});
-
-		function sendmsg() {
-			var msg = $("#comment").val();
-			msg = msg.trim();
-			if (msg.length > 0) {
-				socket.emit('me', { 'text': msg });
-				isme = true
-				$('#sendbtn').hide(200);
-			}
-			else {
-				if ($('#alertbox').css('display') == 'none') {
-					$('#alertbox').html('<h6 class="alert alert-warning">You should write a message</h6>');
-					$('#alertbox').show(500).delay(1000).hide(500);
-				}
-			}
-		}
-
-		// $("#message-content").on('click', () => {
-		// 	isfocused = $('#comment').is(':focus');
-		// 	if (!isfocused) {
-		// 		$('#comment').focus();
-		// 	}
-		// })
-
-		$('#comment').keyup(function () {
-			if ($('#sendbtn').css('display') == 'block') {
-				if ($('#comment').val().length <= 0) {
-					$('#sendbtn').hide(200)
-				}
-			} else {
-				if ($('#comment').val().length > 0) {
-					$('#sendbtn').show(200)
-				} else {
-					$('#sendbtn').hide(200)
-				}
-			}
-		})
-	</script>
+	<script src="/js/chat.js"></script>
 
 </body>
 
